@@ -1,4 +1,3 @@
-//your code here
 document.addEventListener("DOMContentLoaded", () => {
   const divs = document.querySelectorAll(".image");
 
@@ -25,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function drop(e) {
     e.preventDefault();
     if (draggedElement !== e.target) {
-      // Swap images/content between divs
       const draggedImage = draggedElement.style.backgroundImage;
       draggedElement.style.backgroundImage = e.target.style.backgroundImage;
       e.target.style.backgroundImage = draggedImage;
