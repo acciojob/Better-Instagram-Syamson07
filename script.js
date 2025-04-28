@@ -6,19 +6,20 @@ document.querySelectorAll('.draggable').forEach(div => {
     draggedDiv = e.target;
   });
 
-  // Allow dropping
   div.addEventListener('dragover', (e) => {
     e.preventDefault();
   });
 
-  // Handle drop
   div.addEventListener('drop', (e) => {
     e.preventDefault();
-    if (draggedDiv && draggedDiv !== e.target) {
-      // Swap background images
-      const temp = draggedDiv.style.backgroundImage;
-      draggedDiv.style.backgroundImage = e.target.style.backgroundImage;
-      e.target.style.backgroundImage = temp;
+    if (draggedDiv && draggedDiv !== e.currentTarget) {
+      const draggedImg = draggedDiv.querySelector('img');
+      const targetImg = e.currentTarget.querySelector('img');
+
+      // Swap image src
+      const tempSrc = draggedImg.src;
+      draggedImg.src = targetImg.src;
+      targetImg.src = tempSrc;
     }
   });
 });
