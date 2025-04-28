@@ -2,49 +2,40 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #f0f0f0;
+  margin-top: 50px;
 }
 
 .container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 600px;
-  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
   gap: 10px;
 }
 
-.image {
-  width: 180px;
-  height: 180px;
-  border: 2px solid #ccc;
+.draggable {
+  width: 150px;
+  height: 150px;
   background-size: cover;
   background-position: center;
-  cursor: move;
+  border: 2px solid #ccc;
+  cursor: grab;
 }
 
+/* Background images for each div */
 #div1 {
-  background-image: url('image1.jpg');
+  background-image: url('https://picsum.photos/200/200?random=1');
 }
-
 #div2 {
-  background-image: url('image2.jpg');
+  background-image: url('https://picsum.photos/200/200?random=2');
 }
-
 #div3 {
-  background-image: url('image3.jpg');
+  background-image: url('https://picsum.photos/200/200?random=3');
 }
-
 #div4 {
-  background-image: url('image4.jpg');
+  background-image: url('https://picsum.photos/200/200?random=4');
 }
-
 #div5 {
-  background-image: url('image5.jpg');
+  background-image: url('https://picsum.photos/200/200?random=5');
 }
-
 #div6 {
-  background-image: url('image6.jpg');
+  background-image: url('https://picsum.photos/200/200?random=6');
 }

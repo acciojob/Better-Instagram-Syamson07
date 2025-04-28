@@ -1,36 +1,24 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const divs = document.querySelectorAll(".image");
+let draggedDiv = null;
 
-  divs.forEach(div => {
-    div.addEventListener("dragstart", dragStart);
-    div.addEventListener("dragover", dragOver);
-    div.addEventListener("drop", drop);
-    div.addEventListener("dragend", dragEnd);
+// When drag starts
+document.querySelectorAll('.draggable').forEach(div => {
+  div.addEventListener('dragstart', (e) => {
+    draggedDiv = e.target;
   });
 
-  let draggedElement = null;
-
-  function dragStart(e) {
-    draggedElement = e.target;
-    setTimeout(() => {
-      e.target.style.opacity = "0.5";
-    }, 0);
-  }
-
-  function dragOver(e) {
+  // Allow dropping
+  div.addEventListener('dragover', (e) => {
     e.preventDefault();
-  }
+  });
 
-  function drop(e) {
+  // Handle drop
+  div.addEventListener('drop', (e) => {
     e.preventDefault();
-    if (draggedElement !== e.target) {
-      const draggedImage = draggedElement.style.backgroundImage;
-      draggedElement.style.backgroundImage = e.target.style.backgroundImage;
-      e.target.style.backgroundImage = draggedImage;
+    if (draggedDiv && draggedDiv !== e.target) {
+      // Swap background images
+      const temp = draggedDiv.style.backgroundImage;
+      draggedDiv.style.backgroundImage = e.target.style.backgroundImage;
+      e.target.style.backgroundImage = temp;
     }
-  }
-
-  function dragEnd(e) {
-    e.target.style.opacity = "1";
-  }
+  });
 });
