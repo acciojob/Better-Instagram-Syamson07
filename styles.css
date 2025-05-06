@@ -1,29 +1,31 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  padding-top: 50px;
+  background: #f0f0f0;
 }
 
 .container {
   display: grid;
   grid-template-columns: repeat(3, 150px);
-  gap: 10px;
+  grid-gap: 15px;
 }
 
-.draggable {
+.pic {
   width: 150px;
   height: 150px;
+  background-size: cover;
+  background-position: center;
   border: 2px solid #ccc;
-  cursor: grab;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 8px;
+  cursor: move;
 }
 
-.draggable img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  pointer-events: none; /* Important to allow dragging */
-}
+/* Sample images (replace with your own image URLs) */
+#div1 { background-image: url('https://picsum.photos/id/101/150'); }
+#div2 { background-image: url('https://picsum.photos/id/102/150'); }
+#div3 { background-image: url('https://picsum.photos/id/103/150'); }
+#div4 { background-image: url('https://picsum.photos/id/104/150'); }
+#div5 { background-image: url('https://picsum.photos/id/105/150'); }
+#div6 { background-image: url('https://picsum.photos/id/106/150'); }
